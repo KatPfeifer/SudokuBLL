@@ -63,9 +63,10 @@ public class LatinSquare {
  
   public boolean hasDuplicates(int[] arr) {
 	 boolean hasDuplicates=false;
-	 Arrays.sort(arr);
-	 for (int i=0; i<arr.length-1; i++) {
-		 if (arr[i]==arr[i+1]) {
+	 int[] a  = Arrays.copyOf(arr, arr.length);
+	 Arrays.sort(a);
+	 for (int i=0; i<a.length-1; i++) {
+		 if (a[i]==a[i+1]) {
 			 hasDuplicates=true;
 			 break;
 		 }
@@ -78,15 +79,11 @@ public class LatinSquare {
 	  for (int i=0; i<arr.length; i++) {
 		  int [] columni=getColumn(i);
 		  int [] rowi=getRow(i);
-		  System.out.println("i= "+ i);
 		  if (hasDuplicates(columni)==true) {
-			  System.out.println("got to first false");
 			  return false;
 		  }
 		  if (hasDuplicates(rowi)==true) {
-			  System.out.println("got to second false");
 			  for (int j = 0; j<rowi.length; j++) {
-				  System.out.print(rowi[j]);
 			  }
 			  return false;
 		  }

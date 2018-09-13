@@ -118,7 +118,6 @@ public class LatinSquareTest2 {
 		LatinSquare ls = new LatinSquare(LSquare);
 		assertTrue(ls.isLatinSquare(LSquare));
 	}
-	/*
 	@Test
 	public void isLatinSquareTest2() {
 		int [][] LSquare= {{1,4,5},{4,3,1},{3,1,4}};
@@ -143,5 +142,21 @@ public class LatinSquareTest2 {
 		LatinSquare ls = new LatinSquare(LSquare);
 		assertFalse(ls.isLatinSquare(LSquare));
 	}
-	*/
+	@Test
+	public void getSetTest() {
+		int [][] mySquare= {{1,2,3},{2,3,1},{3,1,2}};
+		LatinSquare ls = new LatinSquare(mySquare);
+		ls.setLatinSquare(mySquare);
+		int [][] newSquare= ls.getLatinSquare();
+		assertTrue(Arrays.equals(mySquare, newSquare));
+	}
+	@Test
+	public void getSetTest2() {
+		int [][] mySquare= {{1,2,3},{2,3,1},{3,1,2}};
+		LatinSquare ls = new LatinSquare(mySquare);
+		ls.setLatinSquare(mySquare);
+		int [][] newSquare= ls.getLatinSquare();
+		int [][] otherSquare= {{2,3,1},{3,1,2},{1,2,3}};
+		assertFalse(Arrays.equals(otherSquare, newSquare));
+	}
 }
