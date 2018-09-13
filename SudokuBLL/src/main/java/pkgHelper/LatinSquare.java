@@ -76,12 +76,26 @@ public class LatinSquare {
 	  int [] row = getRow(0);
 	  int [] column = getColumn(0);
 	  for (int i=0; i<arr.length; i++) {
-		  if (hasDuplicates(getRow(i))==true || hasDuplicates(getColumn(i))==true) {
+		  int [] columni=getColumn(i);
+		  int [] rowi=getRow(i);
+		  System.out.println("i= "+ i);
+		  if (hasDuplicates(columni)==true) {
+			  System.out.println("got to first false");
+			  return false;
+		  }
+		  if (hasDuplicates(rowi)==true) {
+			  System.out.println("got to second false");
+			  for (int j = 0; j<rowi.length; j++) {
+				  System.out.print(rowi[j]);
+			  }
 			  return false;
 		  }
 		  else {
 			  for (int k = 1; k<arr.length; k++) {
-				  if (hasAllValues(getRow(k), row)==false || hasAllValues(getColumn(k), column)==false) {
+				  if (hasAllValues(getRow(k), row)==false) {
+				  return false;
+				  }
+				  if (hasAllValues(getColumn(k), column)==false) { 
 					  return false;
 				  }
 			  }
